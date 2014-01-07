@@ -83,7 +83,7 @@ function g_type(name::Symbol, lib, symname::Symbol)
     libptr = dlopen(lib)
     fnptr = dlsym(libptr, string(symname,"_get_type"))
     typ = ccall(fnptr, GType, ())
-    #dlclose(libptr)
+    dlclose(libptr)
     typ
 end
 g_type(name::Symbol, lib, symname::Expr) = eval(current_module(), symname)

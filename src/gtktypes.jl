@@ -1,3 +1,6 @@
+dlopen(libgtk)
+dlopen(libgdk)
+
 macro gtktype(name)
     groups = split(string(name), r"(?=[A-Z])")
     symname = symbol(join([lowercase(s) for s in groups],"_"))
